@@ -1,0 +1,16 @@
+# Lerna
+lerna-debug.log
+
+# Dot env
+.env
+
+# NPM / Yarn
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Vscode workspaces
+*.code-workspace
+
+# macOS
+.DS_Store
