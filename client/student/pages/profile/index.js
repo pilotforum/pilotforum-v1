@@ -2,10 +2,10 @@ import React from 'react';
 
 import { DefaultLayout } from '~/components/Layout';
 
-export default function Home() {
+export default function Profile() {
   return (
     <DefaultLayout>
-      <h1>home</h1>
+      <h1>Profile</h1>
     </DefaultLayout>
   );
 }

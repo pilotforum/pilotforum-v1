@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import GlobalStyle from '~/styles/global';
 
 export default class MyCustomDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -10,6 +11,7 @@ export default class MyCustomDocument extends Document {
       sheet.collectStyles(
         <>
           <App {...props} />
+          <GlobalStyle />
         </>
       )
     );
