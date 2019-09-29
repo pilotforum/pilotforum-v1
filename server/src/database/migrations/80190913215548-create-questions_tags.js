@@ -13,7 +13,6 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: true,
-        unique: true,
       },
       tag_id: {
         type: Sequelize.INTEGER,
@@ -21,7 +20,6 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: true,
-        unique: true,
       },
       created_at: {
         type: Sequelize.DATE,
