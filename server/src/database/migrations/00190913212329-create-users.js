@@ -19,7 +19,6 @@ module.exports = {
       user_type: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       password_hash: {
         type: Sequelize.STRING,
@@ -36,7 +35,7 @@ module.exports = {
     });
   },
 
-  down: queryInterface => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('users');
   },
 };
