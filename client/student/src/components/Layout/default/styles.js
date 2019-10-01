@@ -9,8 +9,11 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Container = styled.div`
-  padding: 20px;
+export const Container = styled.main`
+  padding: 45px 0 20px 0;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;

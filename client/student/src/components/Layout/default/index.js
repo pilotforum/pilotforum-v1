@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '~/components/Header';
+import Navigation from '~/components/Navigation';
+import Aside from '~/components/Aside';
 import { Wrapper, Container } from './styles';
 
 export default function DefaultLayout({ children }) {
@@ -9,7 +11,11 @@ export default function DefaultLayout({ children }) {
     <Wrapper>
       <Header />
       <hr />
-      <Container>{children}</Container>
+      <Container>
+        <Navigation />
+        {children}
+        <Aside />
+      </Container>
     </Wrapper>
   );
 }

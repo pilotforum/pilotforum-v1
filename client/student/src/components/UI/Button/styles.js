@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 
 export const StyledButton = styled.button`
   border: none;
@@ -10,4 +11,9 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   padding: 8px 12px;
   width: 100%;
+  transition: background 150ms;
+
+  &:hover {
+    background-color: ${({ theme }) => lighten(0.05, theme.colors.primary)};
+  }
 `;
