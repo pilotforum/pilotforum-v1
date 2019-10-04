@@ -10,7 +10,7 @@ function Aside({ intl: { messages } }) {
     <Container>
       <Button type="button" text={messages['aside.question']} />
       <TagsWrapper>
-        <Link>
+        <Link href="/tags">
           <a>
             <h3>
               <FormattedMessage id="aside.tags" />{' '}
