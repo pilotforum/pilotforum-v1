@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
-  max-width: 230px;
+  max-width: 200px;
   width: 100%;
 `;
 

@@ -13,7 +13,7 @@ export default function DefaultLayout({ children }) {
       <hr />
       <Container>
         <Navigation />
-        {children}
+        <main>{children}</main>
         <Aside />
       </Container>
     </Wrapper>
