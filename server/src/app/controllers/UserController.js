@@ -7,7 +7,7 @@ class UserController {
   }
 
   async update(req, res) {
-    const user = await User.findByPk(req.params.id);
+    const user = await User.findByPk(req.userId);
     const { id, userName, email } = await user.update(req.body);
     return res.json({
       id,
