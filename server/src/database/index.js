@@ -7,8 +7,9 @@ import Subject from '../app/models/Subject';
 import databaseConfig from '../config/database';
 import Student from '../app/models/Student';
 import Question from '../app/models/Question';
+import Tag from '../app/models/Tag';
 
-const models = [User, Institution, Course, Student, Subject, Question];
+const models = [User, Institution, Course, Student, Subject, Question, Tag];
 
 class Database {
   constructor() {
