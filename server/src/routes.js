@@ -6,6 +6,7 @@ import InstitutionController from './app/controllers/InstitutionController';
 import StudentController from './app/controllers/StudentController';
 import CourseController from './app/controllers/CourseController';
 import SubjectController from './app/controllers/SubjectController';
+import QuestionController from './app/controllers/QuestionController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -33,5 +34,11 @@ routes.get('/subjects/:id', SubjectController.show);
 routes.post('/subjects', SubjectController.store);
 routes.put('/subjects/:id', SubjectController.update);
 routes.delete('/subjects/:id', SubjectController.destroy);
+
+routes.get('/questions', QuestionController.index);
+routes.get('/questions/:id', QuestionController.show);
+routes.post('/questions', QuestionController.store);
+routes.put('/questions/:id', QuestionController.update);
+routes.delete('/questions/:id', QuestionController.destroy);
 
 export default routes;

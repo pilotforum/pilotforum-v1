@@ -18,6 +18,10 @@ class Student extends Model {
       foreignKey: ['user_id', 'userId'],
       as: 'user',
     });
+    this.belongsTo(models.User, {
+      foreignKey: ['course_id', 'courseId'],
+      as: 'course',
+    });
   }
 }
 
