@@ -17,6 +17,11 @@ class Tag extends Model {
       foreignKey: ['user_id', 'userId'],
       as: 'user',
     });
+    this.belongsToMany(models.Question, {
+      through: 'questions_tags',
+      as: 'questions',
+      foreignKey: 'tag_id',
+    });
   }
 }
 
