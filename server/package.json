@@ -14,7 +14,8 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "7.12.1",
     "pg-hstore": "2.3.3",
-    "sequelize": "^5.19.1"
+    "sequelize": "^5.19.1",
+    "youch": "^2.0.10"
   },
   "devDependencies": {
     "cli": "^1.0.1",
