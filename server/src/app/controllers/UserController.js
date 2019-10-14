@@ -6,7 +6,15 @@ class UserController {
     return res.json(user);
   }
 
-  async update(req, res) {}
+  async update(req, res) {
+    const user = await User.findByPk(req.userId);
+    const { id, userName, email } = await user.update(req.body);
+    return res.json({
+      id,
+      userName,
+      email,
+    });
+  }
 }
 
 export default new UserController();

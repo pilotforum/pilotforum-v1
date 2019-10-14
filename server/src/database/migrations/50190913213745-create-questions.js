@@ -26,6 +26,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       type_question: {
         type: Sequelize.STRING,
         allowNull: false,
