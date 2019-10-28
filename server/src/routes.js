@@ -16,6 +16,7 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 routes.post('/users', UserController.store);
 routes.post('/institutions', InstitutionController.store);
+routes.get('/institutions', InstitutionController.index);
 routes.post('/students', StudentController.store);
 
 routes.use(authMiddleware);

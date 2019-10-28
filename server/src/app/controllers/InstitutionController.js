@@ -1,6 +1,11 @@
 import Institution from '../models/Institution';
 
 class InstitutionController {
+  async index(req, res) {
+    const institutions = await Institution.findAll();
+    return res.json(institutions);
+  }
+
   async store(req, res) {
     const institution = await Institution.create(req.body);
     return res.json(institution);
