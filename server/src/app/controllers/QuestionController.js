@@ -3,15 +3,37 @@ import Tag from '../models/Tag';
 
 class QuestionController {
   async index(req, res) {
-    const questions = await Question.findAll({
-      include: [
-        {
-          model: Tag,
-          as: 'tags',
-          through: { attributes: [] },
-        },
-      ],
-    });
+    let questions;
+    const { tag } = req.query;
+    if (tag) {
+      questions = await Question.findAll({
+        include: [
+          {
+            model: Tag,
+            as: 'tags',
+            through: {
+              attributes: ['name'],
+            },
+            where: {
+              name: tag,
+            },
+          },
+        ],
+      });
+    } else {
+      questions = await Question.findAll({
+        include: [
+          {
+            model: Tag,
+            as: 'tags',
+            through: {
+              attributes: ['name'],
+            },
+          },
+        ],
+      });
+    }
+
     return res.json(questions);
   }
 
