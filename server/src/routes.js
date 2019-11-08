@@ -9,6 +9,8 @@ import SubjectController from './app/controllers/SubjectController';
 import QuestionController from './app/controllers/QuestionController';
 import TagController from './app/controllers/TagController';
 import AnswerController from './app/controllers/AnswerController';
+import LikeQuestionController from './app/controllers/LikeQuestionController';
+import DislikeQuestionController from './app/controllers/DislikeQuestionController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -52,5 +54,8 @@ routes.delete('/answers/:id', AnswerController.destroy);
 
 routes.get('/tags', TagController.index);
 routes.post('/tags', TagController.store);
+
+routes.post('/like-question/:id', LikeQuestionController.store);
+routes.post('/dislike-question/:id', DislikeQuestionController.store);
 
 export default routes;
