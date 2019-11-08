@@ -1,8 +1,17 @@
 import Question from '../models/Question';
+import Tag from '../models/Tag';
 
 class QuestionController {
   async index(req, res) {
-    const questions = await Question.findAll();
+    const questions = await Question.findAll({
+      include: [
+        {
+          model: Tag,
+          as: 'tags',
+          through: { attributes: [] },
+        },
+      ],
+    });
     return res.json(questions);
   }
 
@@ -12,13 +21,25 @@ class QuestionController {
   }
 
   async store(req, res) {
-    const question = await Question.create(req.body);
+    const { tags, ...data } = req.body;
+    const question = await Question.create(data);
+    if (tags && tags.length > 0) {
+      question.setTags(tags);
+    }
+
     return res.json(question);
   }
 
   async update(req, res) {
+    const { tags, ...data } = req.body;
+
     const question = await Question.findByPk(req.params.id);
-    await question.update(req.body);
+    await question.update(data);
+
+    if (tags && tags.length > 0) {
+      question.setTags(tags);
+    }
+
     return res.json(question);
   }
 

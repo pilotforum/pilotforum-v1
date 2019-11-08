@@ -13,10 +13,6 @@ class Tag extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, {
-      foreignKey: ['user_id', 'userId'],
-      as: 'user',
-    });
     this.belongsToMany(models.Question, {
       through: 'questions_tags',
       as: 'questions',

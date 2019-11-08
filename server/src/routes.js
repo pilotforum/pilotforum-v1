@@ -8,6 +8,7 @@ import CourseController from './app/controllers/CourseController';
 import SubjectController from './app/controllers/SubjectController';
 import QuestionController from './app/controllers/QuestionController';
 import TagController from './app/controllers/TagController';
+import AnswerController from './app/controllers/AnswerController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -42,6 +43,12 @@ routes.get('/questions/:id', QuestionController.show);
 routes.post('/questions', QuestionController.store);
 routes.put('/questions/:id', QuestionController.update);
 routes.delete('/questions/:id', QuestionController.destroy);
+
+routes.get('/answers', AnswerController.index);
+routes.get('/answers/:id', AnswerController.show);
+routes.post('/answers', AnswerController.store);
+routes.put('/answers/:id', AnswerController.update);
+routes.delete('/answers/:id', AnswerController.destroy);
 
 routes.get('/tags', TagController.index);
 routes.post('/tags', TagController.store);

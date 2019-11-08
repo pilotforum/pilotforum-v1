@@ -14,7 +14,7 @@ class Course extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, {
+    this.belongsTo(models.Institution, {
       foreignKey: ['institution_id', 'institutionId'],
       as: 'institution',
     });
