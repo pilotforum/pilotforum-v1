@@ -3,6 +3,7 @@ import signup from './signup';
 import header from './header';
 import aside from './aside';
 import navigation from './navigation';
+import pages from './pages';
 
 export default {
   ...signin,
@@ -10,4 +11,5 @@ export default {
   ...header,
   ...aside,
   ...navigation,
+  ...pages,
 };
