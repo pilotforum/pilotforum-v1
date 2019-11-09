@@ -8,8 +8,18 @@ import databaseConfig from '../config/database';
 import Student from '../app/models/Student';
 import Question from '../app/models/Question';
 import Tag from '../app/models/Tag';
+import Answer from '../app/models/Answer';
 
-const models = [User, Institution, Course, Student, Subject, Question, Tag];
+const models = [
+  User,
+  Institution,
+  Course,
+  Student,
+  Subject,
+  Question,
+  Tag,
+  Answer,
+];
 
 class Database {
   constructor() {
