@@ -21,6 +21,8 @@ routes.post('/users', UserController.store);
 routes.post('/institutions', InstitutionController.store);
 routes.get('/institutions', InstitutionController.index);
 routes.post('/students', StudentController.store);
+routes.get('/courses', CourseController.index);
+routes.post('/courses', CourseController.store);
 
 routes.use(authMiddleware);
 
@@ -28,9 +30,7 @@ routes.put('/users', UserController.update);
 routes.put('/institutions', InstitutionController.update);
 routes.put('/students', StudentController.update);
 
-routes.get('/courses', CourseController.index);
 routes.get('/courses/:id', CourseController.show);
-routes.post('/courses', CourseController.store);
 routes.put('/courses/:id', CourseController.update);
 routes.delete('/courses/:id', CourseController.destroy);
 
