@@ -16,8 +16,8 @@ class Question extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, {
-      foreignKey: ['sutent_id', 'sutentId'],
+    this.belongsTo(models.Student, {
+      foreignKey: ['student_id', 'studentId'],
       as: 'student',
     });
     this.belongsToMany(models.Tag, {

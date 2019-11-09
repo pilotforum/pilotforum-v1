@@ -4,7 +4,6 @@ class Answer extends Model {
   static init(sequelize) {
     super.init(
       {
-        title: Sequelize.STRING,
         content: Sequelize.TEXT,
       },
       {
@@ -14,8 +13,8 @@ class Answer extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, {
-      foreignKey: ['sutent_id', 'sutentId'],
+    this.belongsTo(models.Student, {
+      foreignKey: ['student_id', 'studentId'],
       as: 'student',
     });
     this.belongsTo(models.User, {
