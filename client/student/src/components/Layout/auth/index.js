@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 import { Wrapper, Content, Form, Logo } from './styles';
 
-export default function AuthLayout({ children, link, linkMessage }) {
+export default function AuthLayout({ children, link, linkMessage, onFormSubmit }) {
   return (
     <Wrapper>
       <Logo />
       <Content>
-        <Form>{children}</Form>
+        <Form onSubmit={onFormSubmit}>{children}</Form>
         <Link href={link}>
           <a>{linkMessage}</a>
         </Link>

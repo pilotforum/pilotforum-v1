@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { lighten } from 'polished';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap');
