@@ -21,10 +21,10 @@ export default function Courses() {
 
   return (
     <DefaultLayout>
-      <h1>Courses</h1>
+      <h1>Todos os cursos</h1>
       {loading
         ? 'carregando...'
-        : courses.map((course) => <Box key={course.id} title={course.name} />)}
+        : courses.map((course) => <Box key={course.id} name={course.name} />)}
     </DefaultLayout>
   );
 }

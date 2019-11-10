@@ -23,6 +23,9 @@ routes.get('/institutions', InstitutionController.index);
 routes.post('/students', StudentController.store);
 routes.get('/courses', CourseController.index);
 routes.post('/courses', CourseController.store);
+routes.get('/subjects', SubjectController.index);
+routes.post('/subjects', SubjectController.store);
+routes.get('/tags', TagController.index);
 
 routes.use(authMiddleware);
 
@@ -34,9 +37,7 @@ routes.get('/courses/:id', CourseController.show);
 routes.put('/courses/:id', CourseController.update);
 routes.delete('/courses/:id', CourseController.destroy);
 
-routes.get('/subjects', SubjectController.index);
 routes.get('/subjects/:id', SubjectController.show);
-routes.post('/subjects', SubjectController.store);
 routes.put('/subjects/:id', SubjectController.update);
 routes.delete('/subjects/:id', SubjectController.destroy);
 
@@ -52,7 +53,6 @@ routes.post('/answers', AnswerController.store);
 routes.put('/answers/:id', AnswerController.update);
 routes.delete('/answers/:id', AnswerController.destroy);
 
-routes.get('/tags', TagController.index);
 routes.post('/tags', TagController.store);
 
 routes.post('/like-question/:id', LikeQuestionController.store);
