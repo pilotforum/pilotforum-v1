@@ -1,4 +1,5 @@
 import Tag from '../models/Tag';
+import normalizeTag from '../../utils/normalizeTag';
 
 class TagController {
   async index(req, res) {
@@ -7,7 +8,10 @@ class TagController {
   }
 
   async store(req, res) {
-    const tag = await Tag.create(req.body);
+    let { name } = req.body;
+    name = normalizeTag(name);
+
+    const tag = await Tag.findOrCreate({ name });
     return res.json(tag);
   }
 }

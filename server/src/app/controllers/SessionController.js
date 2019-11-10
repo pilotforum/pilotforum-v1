@@ -14,6 +14,11 @@ class SessionController {
 
     return res.json({
       token: user.generateToken(user.id),
+      user: {
+        id: user.id,
+        name: user.userName,
+        email: user.email,
+      }
     });
   }
 }
