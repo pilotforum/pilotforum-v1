@@ -17,7 +17,7 @@ class Answer extends Model {
       foreignKey: ['student_id', 'studentId'],
       as: 'student',
     });
-    this.belongsTo(models.User, {
+    this.belongsTo(models.Question, {
       foreignKey: ['question_id', 'questionId'],
       as: 'question',
     });

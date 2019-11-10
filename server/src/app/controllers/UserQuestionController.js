@@ -6,8 +6,8 @@ class UserQuestionController {
 
     const question = await Question.findAll({
       where: {
-        user_id
-      }
+        user_id,
+      },
     });
 
     return res.json(question);

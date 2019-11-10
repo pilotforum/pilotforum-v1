@@ -11,7 +11,7 @@ class TagController {
     let { name } = req.body;
     name = normalizeTag(name);
 
-    const tag = await Tag.findOrCreate({ name });
+    const tag = await Tag.findOrCreate({ where: { name } });
     return res.json(tag);
   }
 }

@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 
-import User from '../app/models/User';
 import Institution from '../app/models/Institution';
 import Course from '../app/models/Course';
 import Subject from '../app/models/Subject';
@@ -10,16 +9,7 @@ import Question from '../app/models/Question';
 import Tag from '../app/models/Tag';
 import Answer from '../app/models/Answer';
 
-const models = [
-  User,
-  Institution,
-  Course,
-  Student,
-  Subject,
-  Question,
-  Tag,
-  Answer,
-];
+const models = [Institution, Course, Student, Subject, Question, Tag, Answer];
 
 class Database {
   constructor() {

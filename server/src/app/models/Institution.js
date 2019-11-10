@@ -13,13 +13,6 @@ class Institution extends Model {
       }
     );
   }
-
-  static associate(models) {
-    this.belongsTo(models.User, {
-      foreignKey: ['user_id', 'userId'],
-      as: 'user',
-    });
-  }
 }
 
 export default Institution;
