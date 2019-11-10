@@ -2,15 +2,11 @@ import Question from '../models/Question';
 
 class UserQuestionController {
   async index(req, res) {
-    const { user_id } = req.params;
+    const { studentId } = req.params;
 
-    const question = await Question.findAll({
-      where: {
-        user_id,
-      },
-    });
+    const questions = await Question.findAll({ where: { studentId } });
 
-    return res.json(question);
+    return res.json(questions);
   }
 }
 

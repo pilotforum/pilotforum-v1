@@ -11,6 +11,7 @@ import AnswerController from './app/controllers/AnswerController';
 import LikeQuestionController from './app/controllers/LikeQuestionController';
 import DislikeQuestionController from './app/controllers/DislikeQuestionController';
 import UserQuestionController from './app/controllers/UserQuestionController';
+import TagQuestionController from './app/controllers/TagQuestionController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -23,6 +24,7 @@ routes.get('/courses/:id', CourseController.show);
 routes.get('/courses', CourseController.index);
 
 routes.get('/tags', TagController.index);
+routes.get('/tags/:tagName', TagQuestionController.index);
 
 routes.get('/subjects', SubjectController.index);
 routes.get('/subjects/:id', SubjectController.show);
@@ -32,7 +34,7 @@ routes.get('/answers/:id', AnswerController.show);
 
 routes.get('/questions', QuestionController.index);
 routes.get('/questions/:id', QuestionController.show);
-routes.get('/questions/:user_id', UserQuestionController.index);
+routes.get('/questions/student/:studentId', UserQuestionController.index);
 
 // routes.use(authMiddleware);
 
