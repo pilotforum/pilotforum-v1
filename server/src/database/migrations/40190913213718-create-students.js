@@ -7,13 +7,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'users', keys: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        allowNull: true,
-      },
       course_id: {
         type: Sequelize.INTEGER,
         references: { model: 'courses', keys: 'id' },
@@ -25,10 +18,23 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      user_name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
       enrollment: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
+      },
+      password_hash: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
