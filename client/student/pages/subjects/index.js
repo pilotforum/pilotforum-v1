@@ -12,7 +12,6 @@ export default function Disciplines() {
       const { data } = await api.get('/subjects');
       setDisciplines(data);
       setLoading(false);
-      console.log(data);
     }
 
     getDisciplines();
@@ -22,10 +21,10 @@ export default function Disciplines() {
     <DefaultLayout>
       <h1>Todas as matérias</h1>
       {loading
-        ? 'carregando...'
+        ? <p>Carregando...</p>
         : disciplines.map((subject) => (
-            <Box key={subject.id} name={subject.name} />
-          ))}
+          <Box key={subject.id} name={subject.name} />
+        ))}
     </DefaultLayout>
   );
 }

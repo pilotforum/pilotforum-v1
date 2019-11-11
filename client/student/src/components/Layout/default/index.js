@@ -6,7 +6,7 @@ import Navigation from '~/components/Navigation';
 import Aside from '~/components/Aside';
 import { Wrapper, Container } from './styles';
 
-export default function DefaultLayout({ children }) {
+export default function DefaultLayout({ children, withoutAside }) {
   return (
     <Wrapper>
       <Header />
@@ -14,7 +14,7 @@ export default function DefaultLayout({ children }) {
       <Container>
         <Navigation />
         <main>{children}</main>
-        <Aside />
+        {!withoutAside && <Aside />}
       </Container>
     </Wrapper>
   );

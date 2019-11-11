@@ -35,9 +35,11 @@ export const Container = styled.div`
     }
 
     p {
+      width: 100%;
       font-size: 1rem;
       color: ${({ theme }) => theme.colors.text};
       line-height: 1.3;
+      text-align: left;
     }
   }
 `;

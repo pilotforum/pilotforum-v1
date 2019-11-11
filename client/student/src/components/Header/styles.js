@@ -38,3 +38,33 @@ export const Menu = styled.ul`
     margin-right: 50px;
   }
 `;
+
+export const Profile = styled.div`
+  display: flex;
+  margin-left: 20px;
+
+  div {
+    text-align: right;
+    margin-right: 10px;
+
+    strong {
+      display: block;
+      color: #333;
+    }
+
+    button {
+      margin-top: 2px;
+      border: none;
+      background: none;
+      font-size: 12px;
+      color: #e84118;
+      font-weight: bold;
+    }
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+`;

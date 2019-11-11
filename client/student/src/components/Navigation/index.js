@@ -55,7 +55,7 @@ export default function Navigation() {
             </Link>
           </Item>
           <Item>
-            <Link href="/questions">
+            <Link href="/profile/my-questions">
               <a>
                 <FaQuestionCircle />
                 <FormattedMessage id="navigation.list_item_dashboard_questions" />

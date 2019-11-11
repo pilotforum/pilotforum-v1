@@ -4,7 +4,7 @@ import { DefaultLayout } from '~/components/Layout';
 
 export default function Question() {
   return (
-    <DefaultLayout>
+    <DefaultLayout withoutAside>
       <h1>question</h1>
     </DefaultLayout>
   );

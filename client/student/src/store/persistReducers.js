@@ -5,6 +5,6 @@ export default reducers => {
   return persistReducer({
     key: 'pilotforum',
     storage,
-    whitelist: ['auth']
+    whitelist: ['auth', 'user']
   }, reducers);
 }

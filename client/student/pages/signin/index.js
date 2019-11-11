@@ -10,6 +10,7 @@ import { signInRequest } from '~/store/modules/auth/actions';
 
 function Signin({ intl: { messages } }) {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -38,7 +39,10 @@ function Signin({ intl: { messages } }) {
         type="password"
         placeholder={messages['signin.password']}
       />
-      <Button type="submit" text={messages['signin.login']} />
+      <Button
+        type="submit"
+        text={!loading ? messages['signin.login'] : 'Carregando...'}
+      />
     </AuthLayout>
   );
 }
