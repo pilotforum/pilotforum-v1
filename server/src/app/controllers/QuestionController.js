@@ -1,7 +1,9 @@
-import Question from '../models/Question';
-import Tag from '../models/Tag';
-import normalizeTag from '../../utils/normalizeTag';
 const { map } = require('p-iteration');
+import Question from '../models/Question';
+import Answer from '../models/Answer';
+import Tag from '../models/Tag';
+import Subject from '../models/Subject';
+import normalizeTag from '../../utils/normalizeTag';
 
 class QuestionController {
   async index(req, res) {
@@ -11,7 +13,7 @@ class QuestionController {
           model: Tag,
           as: 'tags',
           through: {
-            attributes: ['name'],
+            attributes: [],
           },
         },
       ],
@@ -21,13 +23,39 @@ class QuestionController {
   }
 
   async show(req, res) {
-    const question = await Question.findByPk(req.params.id);
-    return res.json(question);
+    const { id } = req.params;
+    const question = await Question.findByPk(id);
+
+    const answers = await Answer.findAll({
+      where: { questionId: id },
+    });
+
+    const questionResult = {
+      title: question.title,
+      content: question.content,
+      score: question.score,
+      subjectId: question.subjectId,
+      tags: question.tags,
+      answers,
+    };
+
+    return res.json(questionResult);
   }
 
   async store(req, res) {
     const { tags, ...data } = req.body;
-    const question = await Question.create(data);
+
+    const subject = await Subject.findByPk(data.subjectId);
+    if (!subject) {
+      return res.status(400).json({ error: 'Matéria não encontrada!' });
+    }
+
+    const questionData = {
+      studentId: req.userId,
+      ...data,
+    };
+
+    const question = await Question.create(questionData);
     if (tags && tags.length > 0) {
       const tagIds = await verifyTags();
       question.setTags(tagIds);

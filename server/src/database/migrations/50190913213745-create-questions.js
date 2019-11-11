@@ -14,6 +14,13 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
+      subject_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'subjects', keys: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,

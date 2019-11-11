@@ -15,7 +15,7 @@ class SessionController {
     return res.json({
       token: student.generateToken(student.id),
       student: {
-        id: user.id,
+        id: student.id,
         name: student.userName,
         email: student.email,
       },
