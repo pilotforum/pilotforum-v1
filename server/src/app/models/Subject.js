@@ -14,7 +14,7 @@ class Subject extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, {
+    this.belongsTo(models.Course, {
       foreignKey: ['course_id', 'courseId'],
       as: 'course',
     });

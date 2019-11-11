@@ -12,7 +12,12 @@ class AnswerController {
   }
 
   async store(req, res) {
-    const answer = await Answer.create(req.body);
+    const { body } = req;
+    const answerData = {
+      studentId: req.userId,
+      ...body,
+    };
+    const answer = await Answer.create(answerData);
     return res.json(answer);
   }
 

@@ -15,6 +15,7 @@
     "express-async-errors": "^3.1.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
+    "p-iteration": "^1.1.8",
     "pg": "7.12.1",
     "pg-hstore": "2.3.3",
     "sequelize": "^5.19.1",

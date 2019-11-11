@@ -20,6 +20,10 @@ class Question extends Model {
       foreignKey: ['student_id', 'studentId'],
       as: 'student',
     });
+    this.belongsTo(models.Subject, {
+      foreignKey: ['subject_id', 'subjectId'],
+      as: 'subject',
+    });
     this.belongsToMany(models.Tag, {
       through: 'questions_tags',
       as: 'tags',

@@ -1,9 +1,9 @@
-import Question from '../models/Question';
 import Tag from '../models/Tag';
+import Question from '../models/Question';
 
-class UserQuestionController {
+class TagQuestionController {
   async index(req, res) {
-    const { studentId } = req.params;
+    const { tagName } = req.params;
 
     const questions = await Question.findAll({
       include: [
@@ -11,15 +11,17 @@ class UserQuestionController {
           model: Tag,
           as: 'tags',
           through: {
-            attributes: [],
+            attributes: ['name'],
+          },
+          where: {
+            name: tagName,
           },
         },
       ],
-      where: { studentId },
     });
 
     return res.json(questions);
   }
 }
 
-export default new UserQuestionController();
+export default new TagQuestionController();
