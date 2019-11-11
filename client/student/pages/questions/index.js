@@ -12,7 +12,6 @@ export default function Questions() {
       const { data } = await api.get('/questions');
       setQuestions(data);
       setLoading(false);
-      console.log(data);
     }
 
     getQuestions();
@@ -22,10 +21,10 @@ export default function Questions() {
     <DefaultLayout>
       <h1>Minhas perguntas</h1>
       {loading
-        ? 'carregando...'
+        ? 'Carregando...'
         : disciplines.map((questions) => (
-            <Box key={questions.id} name={questions.title} />
-          ))}
+          <Box key={questions.id} name={questions.title} />
+        ))}
     </DefaultLayout>
   );
 }

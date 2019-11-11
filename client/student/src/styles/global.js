@@ -31,6 +31,7 @@ export default createGlobalStyle`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.linkColor};
     transition: opacity 150ms;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.8;

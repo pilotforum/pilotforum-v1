@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import GlobalStyle from '~/styles/global';
 import defaultTheme from '~/styles/theme';

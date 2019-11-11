@@ -13,7 +13,6 @@ export default function Courses() {
       const { data } = await api.get('/courses');
       setCourses(data);
       setLoading(false);
-      console.log(data);
     }
 
     getCourses();
@@ -23,7 +22,7 @@ export default function Courses() {
     <DefaultLayout>
       <h1>Todos os cursos</h1>
       {loading
-        ? 'carregando...'
+        ? <p>Carregando...</p>
         : courses.map((course) => <Box key={course.id} name={course.name} />)}
     </DefaultLayout>
   );
