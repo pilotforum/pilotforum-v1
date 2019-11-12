@@ -26,11 +26,9 @@ export default function Tags() {
       {loading
         ? <p>Carregando...</p>
         : tags.map((tag) => (
-          <Link key={tag.id} href={`tag/${normalizeTag(tag.name)}`}>
-            <a style={{ width: '100%' }}>
-              <Box name={tag.name} />
-            </a>
-          </Link>
+          <Box
+            name={tag.name}
+            link={`/questions?filter=tag&id=${normalizeTag(tag.name)}`} />
         ))}
     </DefaultLayout>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -21,7 +22,19 @@ const Container = styled.div`
   }
 `;
 
-export default function Box({ name }) {
+export default function Box({ name, link }) {
+  if (link) {
+    return (
+      <Link href={link}>
+        <a style={{ width: '100%' }}>
+          <Container>
+            <h3>{name}</h3>
+          </Container>
+        </a>
+      </Link>
+    )
+  }
+
   return (
     <Container>
       <h3>{name}</h3>

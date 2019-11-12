@@ -23,7 +23,13 @@ export default function Courses() {
       <h1>Todos os cursos</h1>
       {loading
         ? <p>Carregando...</p>
-        : courses.map((course) => <Box key={course.id} name={course.name} />)}
+        : courses.map((course) => (
+          <Box
+            key={course.id}
+            name={course.name}
+            link={`/questions?filter=course&id=${course.id}`}
+          />
+        ))}
     </DefaultLayout>
   );
 }

@@ -39,7 +39,7 @@ function Aside({ intl: { messages } }) {
           {loading && !tags ? <p>Carregando tags...</p> :
             tags.map(tag => (
               <Tag key={tag.id}>
-                <Link href={`tag/${normalizeTag(tag.name)}`}>
+                <Link href={`/questions?filter=tag&id=${normalizeTag(tag.name)}`}>
                   <a>{tag.name}</a>
                 </Link>
               </Tag>
