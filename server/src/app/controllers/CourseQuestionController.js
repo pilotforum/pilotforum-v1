@@ -1,6 +1,7 @@
 import Question from '../models/Question';
 import Course from '../models/Course';
 import Subject from '../models/Subject';
+import Tag from '../models/Tag';
 
 class CourseQuestionController {
   async index(req, res) {
@@ -19,6 +20,13 @@ class CourseQuestionController {
           ],
           where: {
             courseId,
+          },
+        },
+        {
+          model: Tag,
+          as: 'tags',
+          through: {
+            attributes: [],
           },
         },
       ],

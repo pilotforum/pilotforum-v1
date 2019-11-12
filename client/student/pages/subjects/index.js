@@ -20,11 +20,17 @@ export default function Disciplines() {
   return (
     <DefaultLayout>
       <h1>Todas as matérias</h1>
-      {loading
-        ? <p>Carregando...</p>
-        : disciplines.map((subject) => (
-          <Box key={subject.id} name={subject.name} />
-        ))}
+      {loading ? (
+        <p>Carregando...</p>
+      ) : (
+          disciplines.map((subject) => (
+            <Box
+              key={subject.id}
+              name={subject.name}
+              link={`/questions?filter=subject&id=${subject.id}`}
+            />
+          ))
+        )}
     </DefaultLayout>
   );
 }
