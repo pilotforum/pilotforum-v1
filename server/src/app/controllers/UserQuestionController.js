@@ -3,8 +3,6 @@ import Tag from '../models/Tag';
 
 class UserQuestionController {
   async index(req, res) {
-    const { studentId } = req.params;
-
     const questions = await Question.findAll({
       include: [
         {
@@ -14,8 +12,10 @@ class UserQuestionController {
             attributes: [],
           },
         },
+        {
+          association: 'answers',
+        },
       ],
-      where: { studentId },
     });
 
     return res.json(questions);

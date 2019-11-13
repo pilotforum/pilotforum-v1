@@ -16,7 +16,11 @@ class QuestionController {
             attributes: [],
           },
         },
+        {
+          association: 'answers',
+        },
       ],
+      order: [['createdAt', 'DESC']],
     });
 
     return res.json(questions);
@@ -24,22 +28,25 @@ class QuestionController {
 
   async show(req, res) {
     const { id } = req.params;
-    const question = await Question.findByPk(id);
-
-    const answers = await Answer.findAll({
-      where: { questionId: id },
+    const question = await Question.findOne({
+      include: [
+        {
+          model: Tag,
+          as: 'tags',
+          through: {
+            attributes: [],
+          },
+        },
+        {
+          association: 'answers',
+        },
+      ],
+      where: {
+        id
+      }
     });
 
-    const questionResult = {
-      title: question.title,
-      content: question.content,
-      score: question.score,
-      subjectId: question.subjectId,
-      tags: question.tags,
-      answers,
-    };
-
-    return res.json(questionResult);
+    return res.json(question);
   }
 
   async store(req, res) {

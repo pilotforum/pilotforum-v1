@@ -34,7 +34,7 @@ export default function Questions() {
               title={question.title}
               tags={question.tags}
               votes={question.score}
-              answers={2} />
+              answers={question.answers.length} />
           ))
         )}
     </DefaultLayout>

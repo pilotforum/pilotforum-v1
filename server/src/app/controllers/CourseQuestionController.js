@@ -29,6 +29,9 @@ class CourseQuestionController {
             attributes: [],
           },
         },
+        {
+          association: 'answers',
+        },
       ],
     });
 

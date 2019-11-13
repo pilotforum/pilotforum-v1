@@ -14,7 +14,7 @@ export default function Question({ title, tags, votes, answers }) {
               {tags.map(tag => <Tag key={tag.name}>{tag.name}</Tag>)}
             </Tags>
             <InfoText>{votes} votos</InfoText>
-            {/* <InfoText>{answers} respostas</InfoText> */}
+            <InfoText>{answers} respostas</InfoText>
           </Info>
         </Container>
       </a>

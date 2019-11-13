@@ -38,8 +38,6 @@ routes.get('/answers/:id', AnswerController.show);
 routes.get('/questions', QuestionController.index);
 routes.get('/questions/:id', QuestionController.show);
 
-routes.get('/questions/student/:studentId', UserQuestionController.index);
-
 routes.get('/questions/tag/:tagName', TagQuestionController.index);
 routes.get('/questions/course/:courseId', CourseQuestionController.index);
 routes.get('/questions/subject/:subjectId', SubjectQuestionController.index);
@@ -65,6 +63,8 @@ routes.put('/students', StudentController.update);
 routes.post('/questions', QuestionController.store);
 routes.put('/questions/:id', QuestionController.update);
 routes.delete('/questions/:id', QuestionController.destroy);
+
+routes.get('/question-student', UserQuestionController.index);
 
 routes.post('/answers', AnswerController.store);
 routes.put('/answers/:id', AnswerController.update);

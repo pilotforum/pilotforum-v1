@@ -17,6 +17,9 @@ class TagQuestionController {
             name: tagName,
           },
         },
+        {
+          association: 'answers',
+        },
       ],
     });
 

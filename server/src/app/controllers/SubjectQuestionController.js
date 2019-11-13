@@ -21,6 +21,9 @@ class SubjectQuestionController {
             attributes: [],
           },
         },
+        {
+          association: 'answers',
+        },
       ],
       where: {
         subjectId,
