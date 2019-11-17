@@ -23,7 +23,7 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 routes.get('/institutions', InstitutionController.index);
 
-routes.get('/courses/:institutionId', InstCourseController.show);
+routes.get('/courses/institution/:institutionId', InstCourseController.show);
 routes.get('/courses/:id', CourseController.show);
 routes.get('/courses', CourseController.index);
 
@@ -66,7 +66,7 @@ routes.post('/questions', QuestionController.store);
 routes.put('/questions/:id', QuestionController.update);
 routes.delete('/questions/:id', QuestionController.destroy);
 
-routes.get('/question-student', UserQuestionController.index);
+routes.get('/question-student/:userId', UserQuestionController.index);
 
 routes.post('/answers', AnswerController.store);
 routes.put('/answers/:id', AnswerController.update);
