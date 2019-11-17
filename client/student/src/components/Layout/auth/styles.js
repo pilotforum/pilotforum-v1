@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Form as AuxForm } from '@rocketseat/unform';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -16,7 +15,7 @@ export const Content = styled.section`
   text-align: center;
 `;
 
-export const Form = styled(AuxForm)`
+export const Form = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;

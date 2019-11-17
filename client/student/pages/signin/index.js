@@ -15,7 +15,9 @@ function Signin({ intl: { messages } }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!email || !password) return;
     dispatch(signInRequest(email, password));
   }
 

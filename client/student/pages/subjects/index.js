@@ -31,6 +31,10 @@ export default function Disciplines() {
             />
           ))
         )}
+
+      {!loading && disciplines.length === 0 && (
+        <p>Não foram encontradas matérias...</p>
+      )}
     </DefaultLayout>
   );
 }

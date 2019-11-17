@@ -4,6 +4,12 @@ import api from '~/services/api';
 import { DefaultLayout } from '~/components/Layout';
 import Question from '~/components/Question';
 
+const index = {
+  courses: 'curso',
+  subjects: 'matérias',
+  tag: 'tag'
+}
+
 export default function Questions() {
   const router = useRouter();
   const [questions, setQuestions] = useState([])
@@ -11,7 +17,7 @@ export default function Questions() {
 
   useEffect(() => {
     async function loadQuestions() {
-      const { filter, id } = router.query
+      const { filter, id } = router.query;
 
       const { data } = await api.get(`/questions/${filter}/${id}`);
 
@@ -34,9 +40,14 @@ export default function Questions() {
               title={question.title}
               tags={question.tags}
               votes={question.score}
-              answers={question.answers.length} />
+              answers={question.answers.length}
+            />
           ))
         )}
+
+      {!loading && questions.length === 0 && (
+        <p>Não há perguntas dessa {index[router.query.filter]}...</p>
+      )}
     </DefaultLayout>
   );
 }

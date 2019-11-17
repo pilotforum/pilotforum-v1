@@ -9,7 +9,7 @@ export default function AuthLayout({ children, link, linkMessage, onFormSubmit }
     <Wrapper>
       <Logo />
       <Content>
-        <Form onSubmit={onFormSubmit}>{children}</Form>
+        <Form onSubmit={onFormSubmit} method="post">{children}</Form>
         <Link href={link}>
           <a>{linkMessage}</a>
         </Link>
