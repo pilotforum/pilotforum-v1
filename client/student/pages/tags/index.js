@@ -23,6 +23,7 @@ export default function Tags() {
   return (
     <DefaultLayout>
       <h1>Tags</h1>
+
       {loading
         ? <p>Carregando...</p>
         : tags.map((tag) => (
@@ -30,6 +31,10 @@ export default function Tags() {
             name={tag.name}
             link={`/questions?filter=tag&id=${normalizeTag(tag.name)}`} />
         ))}
+
+      {!loading && disciplines.length === 0 && (
+        <p>Não foram encontradas tags...</p>
+      )}
     </DefaultLayout>
   );
 }

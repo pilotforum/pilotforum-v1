@@ -4,7 +4,7 @@ import { DefaultLayout } from '~/components/Layout';
 
 export default function Profile() {
   return (
-    <DefaultLayout>
+    <DefaultLayout withoutAside>
       <h1>Profile</h1>
     </DefaultLayout>
   );

@@ -18,6 +18,7 @@ class SessionController {
         id: student.id,
         name: student.userName,
         email: student.email,
+        courseId: student.courseId,
       },
     });
   }

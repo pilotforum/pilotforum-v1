@@ -14,6 +14,7 @@ import UserQuestionController from './app/controllers/UserQuestionController';
 import TagQuestionController from './app/controllers/TagQuestionController';
 import CourseQuestionController from './app/controllers/CourseQuestionController';
 import SubjectQuestionController from './app/controllers/SubjectQuestionController';
+import InstCourseController from './app/controllers/InstCourseController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -22,6 +23,7 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 routes.get('/institutions', InstitutionController.index);
 
+routes.get('/courses/institution/:institutionId', InstCourseController.show);
 routes.get('/courses/:id', CourseController.show);
 routes.get('/courses', CourseController.index);
 
@@ -64,7 +66,7 @@ routes.post('/questions', QuestionController.store);
 routes.put('/questions/:id', QuestionController.update);
 routes.delete('/questions/:id', QuestionController.destroy);
 
-routes.get('/question-student', UserQuestionController.index);
+routes.get('/question-student/:userId', UserQuestionController.index);
 
 routes.post('/answers', AnswerController.store);
 routes.put('/answers/:id', AnswerController.update);

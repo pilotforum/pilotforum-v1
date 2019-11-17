@@ -1,29 +1,38 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
-import { signUpSuccess } from './actions';
-import { signFailure } from '../auth/actions';
+import { signUpSuccess, signUpFailure } from './actions';
 
 import api from '~/services/api';
 
 export function* signUp({ payload }) {
   try {
-    const { name, email, password } = payload;
-
-    yield call(api.post, '/users', {
+    const { name, email, password, enrollment, course } = payload;
+    console.log({
       userName: name,
-      userType: "aluno",
+      name,
       email,
       password,
+      enrollment,
+      courseId: course,
     });
 
-    yield put(signUpSuccess());
+    yield call(api.post, '/students', {
+      userName: name,
+      name,
+      email,
+      password,
+      enrollment,
+      courseId: course,
+    });
 
     Router.push('/signin');
     toast.info('Você precisa fazer login para começar a usar o Pilot Forum.')
+
+    yield put(signUpSuccess());
   } catch (err) {
     toast.error('Ocorreu um erro ao criar a sua conta.');
-    yield put(signFailure());
+    yield put(signUpFailure());
   }
 }
 
