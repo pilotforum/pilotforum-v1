@@ -8,14 +8,6 @@ import api from '~/services/api';
 export function* signUp({ payload }) {
   try {
     const { name, email, password, enrollment, course } = payload;
-    console.log({
-      userName: name,
-      name,
-      email,
-      password,
-      enrollment,
-      courseId: course,
-    });
 
     yield call(api.post, '/students', {
       userName: name,
@@ -36,7 +28,29 @@ export function* signUp({ payload }) {
   }
 }
 
+export function* updateUser({ payload }) {
+  try {
+    const { name, email, password, enrollment, course, userId } = payload;
+
+    yield call(api.post, `/students/${userId}`, {
+      userName: name,
+      name,
+      email,
+      password,
+      enrollment,
+      courseId: course,
+    });
+
+    yield put(signUpSuccess());
+
+    toast.info('Sua conta foi atualizada com sucesso!');
+  } catch (err) {
+    toast.error('Ocorreu um erro ao atualizar a sua conta.');
+    yield put(signUpFailure());
+  }
+}
 
 export default all([
-  takeLatest('@user/SIGN_UP_REQUEST', signUp)
+  takeLatest('@user/SIGN_UP_REQUEST', signUp),
+  takeLatest('@user/UPDATE_REQUEST', updateUser),
 ]);
