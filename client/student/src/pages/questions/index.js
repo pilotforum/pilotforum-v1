@@ -5,7 +5,7 @@ import { DefaultLayout } from '~/components/Layout';
 import Question from '~/components/Question';
 
 const index = {
-  courses: 'curso',
+  course: 'curso',
   subjects: 'matérias',
   tag: 'tag'
 }
@@ -37,6 +37,9 @@ export default function Questions() {
       ) : (
           questions.map((question) => (
             <Question
+              key={question.id}
+              id={question.id}
+              status={question.status}
               title={question.title}
               tags={question.tags}
               votes={question.score}
@@ -46,7 +49,7 @@ export default function Questions() {
         )}
 
       {!loading && questions.length === 0 && (
-        <p>Não há perguntas dessa {index[router.query.filter]}...</p>
+        <p>Não há perguntas desse(a) {index[router.query.filter]}...</p>
       )}
     </DefaultLayout>
   );

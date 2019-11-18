@@ -80,4 +80,8 @@ export default createGlobalStyle`
     width: 100%;
     margin-bottom: 1.15rem;
   }
+
+  .ck-editor__editable_inline {
+    min-height: 300px !important;
+  }
 `;

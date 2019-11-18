@@ -29,6 +29,8 @@ export default function Home() {
           questions.map((question) => (
             <Question
               key={question.id}
+              id={question.id}
+              status={question.status}
               title={question.title}
               tags={question.tags}
               votes={question.score}

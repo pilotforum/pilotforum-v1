@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Router from 'next/router';
 
 import { DefaultLayout } from '~/components/Layout';
 import AsyncSelect from '~/components/AsyncSelect';
+import Button from '~/components/UI/Button';
 import { Form, Input } from '~/styles/pages/question';
 import useCKEditor from '~/hooks/useCKEditor';
 import api from '~/services/api';
@@ -12,18 +14,20 @@ function NewQuestion() {
   const { isEditorLoaded, CKEditor, ClassicEditor } = useCKEditor();
   const [subjects, setSubjects] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState(false);
+  const [title, setTitle] = useState('');
+  const [tags, setTags] = useState('');
+  const [data, setData] = useState('');
   const courseId = useSelector(state => state.user.profile.courseId);
 
   useEffect(() => {
     async function loadSubjects() {
-      const { data } = api.get(`/subjects/course/${courseId}`);
+      const { data } = await api.get(`/subjects/course/${courseId}`);
       if (!data) return;
 
       const auxData = data.map(item => ({
         label: item.name,
         value: item.id
       }));
-      console.log(auxData);
       setSubjects(auxData);
     }
 
@@ -40,13 +44,29 @@ function NewQuestion() {
     setSelectedSubject(option);
   };
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await api.post(`/questions`, {
+      title,
+      content: data,
+      score: 0,
+      status: "ABERTA",
+      subjectId: selectedSubject.value,
+      tags: tags.split(',')
+    });
+
+    Router.push(`/question?id=${response.data.id}`);
+  }
+
   return (
     <DefaultLayout withoutAside>
       <h1>Nova pergunta</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           placeholder="Digite o título da sua pergunta"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <AsyncSelect
           cacheOptions
@@ -62,22 +82,26 @@ function NewQuestion() {
         <Input
           type="text"
           placeholder="Tags (separe por vírgula)"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
         />
         {isEditorLoaded ? (
           <CKEditor
             editor={ClassicEditor}
+            value={data}
             style={{ marginTop: '1.25rem' }}
-            onInit={editor => {
-              console.log('Editor is ready to use!', editor)
-            }}
             onChange={(event, editor) => {
-              const data = editor.getData()
-              console.log({ event, editor, data })
+              setData(editor.getData());
             }}
           />
         ) : (
-            <div>Editor loading</div>
+            <div>Carregando editor</div>
           )}
+        <Button
+          style={{ marginTop: '1.25rem', marginBottom: '2.5rem' }}
+          type="submit"
+          text="Salvar"
+        />
       </Form>
     </DefaultLayout>
   );

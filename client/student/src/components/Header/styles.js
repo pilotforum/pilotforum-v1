@@ -7,6 +7,14 @@ export const Container = styled.header`
   max-width: 1200px;
   margin: 0 auto;
   padding: 14px 0;
+
+  form {
+    flex: 0.8;
+
+    button {
+      display: none;
+    }
+  }
 `;
 
 export const Logo = styled.div`
@@ -16,12 +24,13 @@ export const Logo = styled.div`
 `;
 
 export const SearchBar = styled.input`
-  flex: 0.8;
+  width: 100%;
   border: none;
   padding: 08px 12px 8px 40px;
   border-bottom: 1px solid transparent;
   background: url(/static/images/icons/search.svg) left no-repeat;
   background-size: 24px 24px;
+  transition: all 200ms ease-in;
 
   &:hover,
   &:focus {

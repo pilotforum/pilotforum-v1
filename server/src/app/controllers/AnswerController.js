@@ -1,4 +1,5 @@
 import Answer from '../models/Answer';
+import Student from '../models/Student';
 
 class AnswerController {
   async index(req, res) {
@@ -17,7 +18,16 @@ class AnswerController {
       studentId: req.userId,
       ...body,
     };
-    const answer = await Answer.create(answerData);
+
+    let answer = await Answer.create(answerData);
+    answer = await Answer.findByPk(answer.id, {
+      include: [
+        {
+          association: 'student',
+          attributes: ['id', 'name']
+        }
+      ]
+    })
     return res.json(answer);
   }
 
