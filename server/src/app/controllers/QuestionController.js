@@ -1,6 +1,6 @@
 const { map } = require('p-iteration');
 import Question from '../models/Question';
-import Answer from '../models/Answer';
+import Student from '../models/Student';
 import Tag from '../models/Tag';
 import Subject from '../models/Subject';
 import normalizeTag from '../../utils/normalizeTag';
@@ -38,7 +38,18 @@ class QuestionController {
           },
         },
         {
+          association: 'student',
+          attributes: ['id', 'name']
+        },
+        {
           association: 'answers',
+          include: [
+            {
+              model: Student,
+              as: 'student',
+              attributes: ['id', 'name']
+            }
+          ]
         },
       ],
       where: {

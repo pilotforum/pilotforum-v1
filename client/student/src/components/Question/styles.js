@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   background: rgba(223, 228, 234, 0.5);
@@ -12,6 +12,8 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+
+  margin-bottom: 1rem;
 `;
 
 export const Title = styled.h2`
@@ -32,7 +34,9 @@ export const Info = styled.div`
 
 export const InfoText = styled.div`
   margin-left: 40px;
-  color: #000;
+  color: ${({ open }) => open ? css`
+    ${open ? '#000' : '#e74c3c'}
+  ` : '#000'};
 `;
 
 export const Tags = styled.div`
@@ -48,6 +52,7 @@ export const Tag = styled.div`
   background: rgba(116, 185, 255, 0.75);
   border-radius: 5px;
   padding: 4px 13px;
+  margin-right: 10px;
 
   p {
     color: #205B98;

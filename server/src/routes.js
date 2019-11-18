@@ -15,6 +15,7 @@ import TagQuestionController from './app/controllers/TagQuestionController';
 import CourseQuestionController from './app/controllers/CourseQuestionController';
 import SubjectQuestionController from './app/controllers/SubjectQuestionController';
 import InstCourseController from './app/controllers/InstCourseController';
+import SubjectCourseController from './app/controllers/SubjectCourseController';
 import QuestionNameController from './app/controllers/QuestionNameController';
 
 import authMiddleware from './app/middlewares/auth';
@@ -34,6 +35,7 @@ routes.get('/subjects', SubjectController.index);
 routes.post('/students', StudentController.store);
 
 routes.get('/subjects/:id', SubjectController.show);
+routes.get('/subjects/course/:courseId', SubjectCourseController.show);
 
 routes.get('/answers', AnswerController.index);
 routes.get('/answers/:id', AnswerController.show);
@@ -44,7 +46,7 @@ routes.get('/questions/:id', QuestionController.show);
 routes.get('/questions/tag/:tagName', TagQuestionController.index);
 routes.get('/questions/course/:courseId', CourseQuestionController.index);
 routes.get('/questions/subject/:subjectId', SubjectQuestionController.index);
-routes.get('/search-questions', QuestionNameController.index);
+routes.get('/search', QuestionNameController.index);
 
 routes.post('/institutions', InstitutionController.store);
 routes.put('/institutions', InstitutionController.update);
@@ -62,7 +64,8 @@ routes.post('/tags', TagController.store);
 
 routes.use(authMiddleware);
 
-routes.put('/students', StudentController.update);
+routes.put('/students/:id', StudentController.update);
+routes.get('/students/:id', StudentController.show);
 
 routes.post('/questions', QuestionController.store);
 routes.put('/questions/:id', QuestionController.update);

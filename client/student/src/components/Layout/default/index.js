@@ -11,7 +11,7 @@ export default function DefaultLayout({ children, withoutAside }) {
     <Wrapper>
       <Header />
       <hr />
-      <Container>
+      <Container withoutAside={withoutAside}>
         <Navigation />
         <main>{children}</main>
         {!withoutAside && <Aside />}

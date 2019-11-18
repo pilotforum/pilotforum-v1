@@ -45,7 +45,7 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  > textarea {
+  textarea {
     width: 100%;
     padding: 10px 12px;
     background-color: hsl(0,0%,100%);
@@ -65,18 +65,23 @@ export default createGlobalStyle`
       color: hsl(0,0%,50%);
     }
 
-    &:focus, &:active {
-      border-width: 4px;
-      border-color: #2684ff;
+    &:hover {
+      border-width: 1px;
+      border-color: hsl(0,0%,70%);
     }
 
-    &:hover {
-      border-color: hsl(0,0%,70%);
+    &:focus, &::selection {
+      border-width: 2px;
+      border-color: #2684ff;
     }
   }
 
   .react-select-container {
     width: 100%;
     margin-bottom: 1.15rem;
+  }
+
+  .ck-editor__editable_inline {
+    min-height: 300px !important;
   }
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -23,8 +23,10 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 0 40px 0 0;
-    margin-right: 20px;
+    ${({ withoutAside }) => !withoutAside && css`
+      padding: 0 40px 0 0;
+      margin-right: 20px;
+    `}
 
     h1 {
       font-size: 18px;

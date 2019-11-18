@@ -12,11 +12,9 @@ class DislikeQuestionController {
 
     const { score } = question;
 
-    if (score - 1 !== -1) {
-      question.update({
-        score: score - 1,
-      });
-    }
+    question.update({
+      score: score - 1,
+    });
 
     return res.json(question);
   }

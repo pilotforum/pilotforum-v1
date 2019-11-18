@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
+import Router from 'next/router';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
 import { Container, Logo, SearchBar, Profile, Menu } from './styles';
@@ -10,6 +11,12 @@ import { signOut } from '~/store/modules/auth/actions';
 function Header({ intl: { messages } }) {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
+  const [search, setSearch] = React.useState('');
+
+  function onSubmit(e) {
+    e.preventDefault();
+    Router.push(`/search?title=${search}`);
+  }
 
   function handleLogout() {
     dispatch(signOut());
@@ -22,7 +29,15 @@ function Header({ intl: { messages } }) {
           <Logo />
         </a>
       </Link>
-      <SearchBar type="text" placeholder={messages['header.searchBar']} />
+      <form onSubmit={onSubmit}>
+        <SearchBar
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder={messages['header.searchBar']}
+        />
+        <button type="submit">Buscar</button>
+      </form>
       {profile ?
         (<Profile>
           <div>

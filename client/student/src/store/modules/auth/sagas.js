@@ -42,7 +42,6 @@ export function setToken({ payload }) {
 }
 
 export function signOut() {
-  Router.push('/signin');
   toast.info('Você saiu da aplicação. Faça login para entrar de novo.');
 }
 

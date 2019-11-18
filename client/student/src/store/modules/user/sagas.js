@@ -8,14 +8,6 @@ import api from '~/services/api';
 export function* signUp({ payload }) {
   try {
     const { name, email, password, enrollment, course } = payload;
-    console.log({
-      userName: name,
-      name,
-      email,
-      password,
-      enrollment,
-      courseId: course,
-    });
 
     yield call(api.post, '/students', {
       userName: name,
@@ -27,7 +19,7 @@ export function* signUp({ payload }) {
     });
 
     Router.push('/signin');
-    toast.info('Você precisa fazer login para começar a usar o Pilot Forum.')
+    toast.success('Você precisa fazer login para começar a usar o Pilot Forum.')
 
     yield put(signUpSuccess());
   } catch (err) {
@@ -36,7 +28,30 @@ export function* signUp({ payload }) {
   }
 }
 
+export function* updateUser({ payload }) {
+  try {
+    const { name, email, password, enrollment, course, userId } = payload;
+
+    yield call(api.put, `/students/${userId}`, {
+      userName: name,
+      name,
+      email,
+      password,
+      enrollment,
+      courseId: course,
+    });
+
+    yield put(signUpSuccess());
+
+    toast.success('Sua conta foi atualizada com sucesso!');
+  } catch (err) {
+    toast.error('Ocorreu um erro ao atualizar a sua conta.');
+    yield put(signUpFailure());
+  }
+}
+
 
 export default all([
-  takeLatest('@user/SIGN_UP_REQUEST', signUp)
+  takeLatest('@user/SIGN_UP_REQUEST', signUp),
+  takeLatest('@user/UPDATE_REQUEST', updateUser),
 ]);

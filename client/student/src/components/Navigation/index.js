@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import { IoMdHome, IoIosBriefcase, IoMdPerson } from 'react-icons/io';
 import { MdLibraryBooks } from 'react-icons/md';
@@ -8,6 +9,8 @@ import { FormattedMessage } from 'react-intl';
 import { Wrapper, Container, Info, List, Item } from './styles';
 
 export default function Navigation() {
+  const profile = useSelector(state => state.user.profile);
+
   return (
     <Wrapper>
       <Container>
@@ -41,7 +44,7 @@ export default function Navigation() {
           </Item>
         </List>
       </Container>
-      <Container>
+      {profile && <Container>
         <Info>
           <FormattedMessage id="navigation.list_dashboard" />
         </Info>
@@ -71,7 +74,7 @@ export default function Navigation() {
             </Link>
           </Item>
         </List>
-      </Container>
+      </Container>}
     </Wrapper>
   );
 }
