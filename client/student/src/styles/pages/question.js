@@ -6,5 +6,5 @@ export const Form = styled.div`
 `;
 
 export const Input = styled(AuxInput)`
-  margin-top: 20px;
+  margin-bottom: 20px;
 `;
