@@ -13,11 +13,11 @@
 
 <p align="center">
   <a href="#">
-    <img alt="Gatsby" src=".github/assets/logo.png" width="120" />
+    <img alt="PilotForum" src=".github/assets/logo.png" width="120" />
   </a>
 </p>
 <h1 align="center">
-  Pilot Forum
+  PilotForum
 </h1>
 <p align="center">
   <a href="LICENSE.md">
@@ -31,7 +31,7 @@
   Awesome in every way that matters :rocket:
 </h3>
 <p align="center">
-  Pilot Forum is an amazing and open source forum created for universities, that solve many problems in different areas!
+  PilotForum is an amazing and open source forum created for universities, that solve many problems in different areas!
 </p>
 
 ## 🚀 Get Up and Running in 3 Minutes
@@ -41,13 +41,13 @@ You can get a Pilot Forum site up and running on your local dev environment in 3
 1. **Clone this repository.**
 
    ```shell
-   git clone https://github.com/pilot-forum/pilot-forum.git
+   git clone https://github.com/pilotforum/pilotforum-v1.git
    ```
 
 2. **Enter the folder and install all the dependencies.**
 
    ```shell
-   cd pilot-forum && lerna bootstrap --ignore-prepublish
+   cd pilotforum-v1 && lerna bootstrap --ignore-prepublish
    ```
 
 3. **Start the server in `develop` mode.**
@@ -62,11 +62,11 @@ You can get a Pilot Forum site up and running on your local dev environment in 3
    cd .. && cd client && yarn start
    ```
 
-Your site is now running at `http://localhost:3000`. Open the `pilot-forum` directory in your code editor of choice and start fixing bugs or implementing new features.
+Your site is now running at `http://localhost:3000`. Open the `pilotforum-v1` directory in your code editor of choice and start fixing bugs or implementing new features.
 
 ## 🤝 How to Contribute
 
-Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the Pilot Forum community! :muscle: :purple_heart:
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the PilotForum community! :muscle: :purple_heart:
 
 If you don't know how to start check our [**Contributing Guide**](CONTRIBUTING.md) for a basic tutorial of how you can start.
 
