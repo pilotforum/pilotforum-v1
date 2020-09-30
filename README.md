@@ -1,3 +1,16 @@
+<div align="center">
+    <h1 align="center">DEPRECATED</h1>
+    <p align="center">
+        🚨 Hey, this repository is DEPRECATED and will no longer be actively maintained!
+    </p>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p align="center">
   <a href="#">
     <img alt="Gatsby" src=".github/assets/logo.png" width="120" />
